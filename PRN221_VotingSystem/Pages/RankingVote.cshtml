@@ -1,0 +1,109 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.RankingVoteModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Positional Ranking List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Your CSS styles here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Outfit",sans-serif;
+        }
+
+        body {
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #595DB8;
+            
+        }
+
+        container{
+            display: flex;
+        }
+
+        .sortable-list {
+            width: 425px;
+            padding: 25px;
+            background: #fff;
+            border-radius: 7px;
+            padding: 30px 25px 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+            .sortable-list .item {
+                list-style: none;
+                display: flex;
+                cursor: move;
+                background: #fff;
+                align-items: center;
+                border-radius: 5px;
+                padding: 10px 13px;
+                margin-bottom: 11px;
+                /* box-shadow: 0 2px 4px rgba(0,0,0,0.06); */
+                border: 1px solid #ccc;
+                justify-content: space-between;
+            }
+
+        .item .details {
+            display: flex;
+            align-items: center;
+        }
+
+            .item .details img {
+                height: 43px;
+                width: 43px;
+                pointer-events: none;
+                margin-right: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .item .details span {
+                font-size: 1.13rem;
+            }
+
+        .item i {
+            color: #474747;
+            font-size: 1.13rem;
+        }
+
+        .item.dragging {
+            opacity: 0.6;
+        }
+
+            .item.dragging :where(details, i) {
+                opacity: 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Positional Ranking List</h1>
+        <form action="vote" method="post">
+@*             <input type="hidden" name="Cid" value="${c.getId()}">
+            <input type="hidden" name="ballotSize" value="${candidates.size()}"> *@
+            <ul class="sortable-list">
+                <c:forEach var="candidate" items="${candidates}" varStatus="loop">
+                    <li name="rank${loop.index}" class="item" draggable="true" value="${loop.index}">
+@*                         <input type="hidden" name="score${loop.index}" value="${candidates.size() - loop.index}" class="Score">
+                        <input type="hidden" name="id${loop.index}" value="${candidate.getVotingObjectId()}" class="CandidateID"> *@
+                        <div class="details">
+                            <img src="https://via.placeholder.com/150">
+                            <span>candidate 1</span>
+                        </div>
+                        <i class="uil uil-draggabledots"></i>
+                    </li>
+                </c:forEach>
+            </ul>
+            <button id="saveButton" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</body>
+</html>

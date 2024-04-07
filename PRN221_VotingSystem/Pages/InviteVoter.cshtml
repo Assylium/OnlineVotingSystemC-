@@ -1,0 +1,106 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.InviteVoterModel
+@{
+}
+<style>
+    .full-height-container {
+        height: 80vh !important;
+    }
+</style>
+
+<div class="container">
+    <h1>Invite Voters</h1>
+    <form method="post" enctype="multipart/form-data" >
+        <div class="form-group">
+            <label for="fileInput">Choose File:</label>
+            <input type="file" class="form-control-file" id="fileInput" name="fileInput" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            <button type="submit" class="btn btn-primary">Send with file excel</button>
+        </div>
+    </form>
+    <form id="inviteForm">
+        <div class="form-group d-flex">
+            <label for="quantityInput" class="mr-2">Number of Voters:</label>
+            <input type="number" class="form-control mr-2" id="quantityInput" name="quantityInput" min="1">
+            <button type="button" class="btn btn-primary" onclick="generateTable()">Create</button>
+        </div>
+    </form>
+
+
+    <div id="tableContainer" class="mt-4">
+        <!-- Bảng sẽ được tạo ra ở đây -->
+    </div>
+
+    <button type="button" class="btn btn-primary mt-4" onclick="sendEmails()">Send</button>
+</div>
+
+<script>
+    function generateTable() {
+        var quantity = parseInt(document.getElementById("quantityInput").value);
+        if (isNaN(quantity) || quantity <= 0) {
+            alert("Please enter a valid number of voters.");
+            return;
+        }
+
+        var tableHtml = "<table class='table'><thead><tr><th>Number</th><th>Email</th></tr></thead><tbody>";
+        for (var i = 1; i <= quantity; i++) {
+            tableHtml += "<tr><td>" + i + "</td><td><input type='email' class='form-control' name='emailInput'></td></tr>";
+        }
+        tableHtml += "</tbody></table>";
+
+        document.getElementById("tableContainer").innerHTML = tableHtml;
+    }
+
+    function sendEmails() {
+        // Lấy danh sách email từ các ô input và gửi email
+        var emailInputs = document.querySelectorAll("input[name='emailInput']");
+        var emails = [];
+        emailInputs.forEach(function (input) {
+            emails.push(input.value);
+        });
+        console.log("Emails to send:", emails);
+        // Gửi danh sách email đến server
+        fetch("/InviteVoter?handler=SendEmails", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() // Thêm RequestVerificationToken nếu cần
+            },
+            body: JSON.stringify(emails)
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    console.log("Emails sent successfully.");
+                } else {
+                    throw new Error("Failed to send emails.");
+                }
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    }
+
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var form = event.target;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            headers: {
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+            },
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Emails sent successfully.');
+                } else {
+                    console.error('Failed to send emails.');
+                }
+            })
+            .catch(error => {
+                console.error('Failed to send emails:', error);
+            });
+    });
+</script>

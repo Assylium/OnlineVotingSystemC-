@@ -1,0 +1,26 @@
+﻿.col-md-4 {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.col-md-8 {
+    width: 800px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.col-md-4 .profile-image img {
+    width: 200px;
+    height: 200px;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}

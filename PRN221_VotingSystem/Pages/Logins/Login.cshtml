@@ -1,0 +1,49 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/login.css">
+
+<div class="login-container">
+    <h1>@ViewData["Title"]</h1>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <form method="post">
+        <div>
+            <div>
+                <input asp-for="Account.Username" placeholder="Username" />
+                <span asp-validation-for="Account.Username"></span>
+            </div>
+            <div>
+                <input asp-for="Account.Password" type="password" placeholder="Password" />
+                <span asp-validation-for="Account.Password"></span>
+            </div>
+            <button type="submit">Login</button>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div>@TempData["ErrorMessage"]</div>
+            }
+    </form>
+    <div class="link-container">
+        <a href="/Logins/ForgotPassword" style="font-weight: bold; font-size: 14px;">Forgotten Password?</a>
+        <div class="separator-line"></div>
+        <button class="create-account-btn" onclick="redirectToRegister()" style="font-size: 14px;">Create New Account</button>
+    </div>
+</div>
+<script>
+    function redirectToRegister() {
+        window.location.href = "/Logins/Register";
+    }
+</script>
+<script>
+    function openCreateAccountModal() {
+        var modal = document.getElementById("createAccountModal");
+        modal.style.display = "block";
+    }
+</script>

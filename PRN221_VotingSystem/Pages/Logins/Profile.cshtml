@@ -1,0 +1,60 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.ProfileModel
+@{
+    ViewData[""] = "Profile";
+}
+<link rel="stylesheet" href="~/css/profile.css">
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-image">
+                <img src="~/img/Avatar.jpg" alt="User Image" class="img-fluid rounded-circle" id="previewImage">
+            </div>
+            <br />
+            
+            <div>
+                @Model.Account.LastName
+            </div>
+            <br />
+            <div>
+                @Model.Account.Job
+            </div>
+           
+            <div>
+                @Model.Account.Dob.ToString("dd/MM/yyyy")
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-details">
+                <div>
+                    <strong>Full Name:</strong> @Model.Account.FirstName @Model.Account.LastName
+                </div>
+                <hr>
+                <div>
+                    <strong>Gender:</strong> @Model.Account.Gender
+                </div>
+                <hr>
+                <div>
+                    <strong>Email:</strong> @Model.Account.Email
+                </div>
+                <hr>
+                <div>
+                    <strong>Phone:</strong> @Model.Account.Phone
+                </div>
+                <hr>
+                <div>
+                    <strong>Address:</strong> @Model.Account.Address
+                </div>      
+                <hr>
+
+                <div>
+                    <a asp-route-id="@Model.Account.UserId" asp-page="/Logins/EditProfile" class="btn btn-primary">Edit</a>
+                    <a href="ChangePassword" class="btn btn-primary">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

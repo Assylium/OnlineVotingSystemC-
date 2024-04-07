@@ -1,0 +1,53 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.EditCampaignModel
+@{
+    ViewData["Title"] = "Edit Campaign";
+}
+
+<div class="container">
+    <h1>Edit Campaign</h1>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Campaign.CampaignId">Campaign ID:</label>
+            <input asp-for="Campaign.CampaignId" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="Campaign.CampaignName">Campaign Name:</label>
+            <input asp-for="Campaign.CampaignName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Campaign.CampaignDescription">Campaign Description:</label>
+            <textarea asp-for="Campaign.CampaignDescription" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Campaign.StartTime">Start Date:</label>
+            <input asp-for="Campaign.StartTime" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Campaign.EndTime">End Date:</label>
+            <input asp-for="Campaign.EndTime" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Campaign.IsPublic">Visibility:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="Campaign.IsPublic" value="1" id="visibilityPublic" checked="@((Model.Campaign.IsPublic == 1) ? "checked" : null)">
+                <label class="form-check-label" for="visibilityPublic">Public</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="Campaign.IsPublic" value="0" id="visibilityPrivate" checked="@((Model.Campaign.IsPublic == 2) ? "checked" : null)">
+                <label class="form-check-label" for="visibilityPrivate">Private</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Campaign.Password">Campaign Password:</label>
+            <textarea asp-for="Campaign.Password" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Campaign.CampaignDescription">Campaign Description:</label>
+            <textarea asp-for="Campaign.CampaignDescription" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+﻿@page "{email}"
+@model PRN221_VotingSystem.Pages.OTPModel
+@{
+    ViewData["Title"] = "OTP Verification";
+}
+
+<link rel="stylesheet" href="~/css/login.css">
+
+<div class="login-container">
+    <h1>@ViewData["Title"]</h1>
+    <form method="post" id="otpForm">
+        <div>
+            <input type="text" id="otp" name="otp" asp-for="OTP" placeholder="Enter OTP received in email" />
+            <span asp-validation-for="OTP"></span>
+        </div>
+        <button type="submit">Verify OTP</button>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div>@TempData["ErrorMessage"]</div>
+        }
+    </form>
+</div>

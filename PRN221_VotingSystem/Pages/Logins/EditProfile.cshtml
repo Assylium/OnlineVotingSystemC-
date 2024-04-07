@@ -1,0 +1,122 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.EditProfileModel
+@{
+}
+<link rel="stylesheet" href="~/css/register.css">
+<div class="register-container">
+    <h1>Edit Profile</h1>
+
+    <form method="post">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">First Name</div>
+                        </div>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="@Model.FirstName">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Last Name</div>
+                        </div>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="@Model.LastName">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Date of Birth:</div>
+                        </div>
+                        <input type="date" class="form-control" id="dateOfBirth" name="Dob" value="@Model.Dob.ToString("yyyy-MM-dd")">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Job</div>
+                        </div>
+                        <input type="tel" class="form-control" id="job" name="Job" value="@Model.Job">
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Gender:</div>
+                        </div>
+                         <div class="d-flex align-items-center" style="margin-left: 10px;">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="Male" name="gender" @(Model.Gender == "Male" ? "checked" : "")>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline ml-2">
+                                <input class="form-check-input" type="radio" value="Female" name="gender" @(Model.Gender == "Female" ? "checked" : "")>
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline ml-2">
+                                <input class="form-check-input" type="radio" value="Other" name="gender" @(Model.Gender == "Other" ? "checked" : "")>
+                                <label class="form-check-label" for="other">Other</label>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Email</div>
+                        </div>
+                        <input type="email" class="form-control" id="email" name="email" value="@Model.Email">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Phone</div>
+                        </div>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="@Model.Phone">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Address</div>
+                        </div>
+                        <input type="text" class="form-control" id="address" name="address" value="@Model.Address">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

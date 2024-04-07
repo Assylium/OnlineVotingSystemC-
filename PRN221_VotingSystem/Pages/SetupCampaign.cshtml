@@ -1,0 +1,326 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.SetupCampaignModel
+@{
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="override.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="/resources/css/styleRegister.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .content{
+                display: column;
+                flex-direction: column;
+                margin-bottom: 10px; /* Khoảng cách giữa các thẻ div */
+                display: flex;
+                justify-content: center;
+                margin: 250px;
+                margin-top: 100px;
+            }
+
+            .breadcrumb1 {
+                display: flex;
+                flex-direction: column;
+                border: 2px solid #cccccc;
+                padding: 10px;
+            }
+
+            .breadcrumb {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .breadcrumb ol {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .breadcrumb li {
+                flex: 1;
+                text-align: center;
+            }
+
+            .breadcrumb li:not(:last-child)::after {
+                content: "";
+                margin: 0 5px;
+                color: #6c757d;
+            }
+
+            .headbread {
+                margin-bottom: 10px;
+                background-color: #6c757d;
+                padding: 5px;
+            }
+
+            .headbread h6 {
+                margin: 0;
+                padding-left: 10px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .contentbread {
+                display: inline;
+            }
+
+            .breadcrumb a {
+                text-decoration: none;
+                color: #212529;
+                transition: color 0.3s ease;
+            }
+
+            .breadcrumb a:hover {
+                color: #6c757d;
+            }
+
+            .breadcrumb li:first-child a {
+                color: #198754;
+                font-weight: bold;
+            }
+
+            .guide{
+                margin-top: 20px;
+                background-color: #e6f4f4;
+                padding: 10px;
+                border-left: 2px solid #007bff;
+            }
+
+            .form{
+                margin-top: 20px;
+            }
+
+
+
+            .mb-3{
+                width: 500px;
+            }
+
+
+
+            img {
+                width: 100%;
+                max-height: 200px;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .voteimage {
+                font-weight: 600;
+                cursor: pointer;
+                color: #fff;
+                border-radius: 8px;
+                padding: 10px 20px;
+                background-color: #007bff;
+                transition: background-color 0.3s ease;
+            }
+
+            .voteimage:hover {
+                background-color: #0056b3;
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            .time{
+                width:45px;
+            }
+
+            .counttime {
+                display: flex;
+                align-items: center;
+            }
+
+            .time-inputs {
+                display: flex;
+                align-items: center;
+                margin-left: 10px; /* Điều chỉnh khoảng cách giữa các phần tử */
+            }
+
+            .time-inputs input,
+            .time-inputs span {
+                margin-right: 5px; /* Điều chỉnh khoảng cách giữa các input và span */
+            }
+
+            .content .preview {
+                margin-bottom: 5px;
+            }
+
+            .content .voteimage {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+
+            .field{
+                font-weight: bold;
+                color: #333333;
+            }
+
+            .password-container {
+                margin: 10px;
+            }
+
+            .password-container label {
+                display: block;
+            }
+
+            .password-container input {
+                width: 200px;
+                margin-bot: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0">
+                <a class="navbar-brand bg-primary px-4 py-3" href="#">
+                    electriq
+                </a>
+
+                <button class="navbar-toggler px-4 py-3 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    +
+                </button>
+            </nav>
+        </div>
+
+
+
+        <div class="content">
+            <div class="breadcrumb1">
+                <div class="contentbread">
+                    <!--<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">-->
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="SetupCampaign">Set Up</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Details</li>
+                            <li class="breadcrumb-item active" aria-current="page">Review</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="guide">
+                <p><a href="#">Take a Tour</a> to help you complete the meeting vote details. Create 1 vote for each of your meeting items so votes can occur at different times during the meeting and so the voting results are presented separately</p>
+            </div>
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="form">
+                    <h3>Vote Details</h3>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label field" style="">Vote title</label>
+                        <input type="text" class="form-control" placeholder="Example: School Campaign" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label field">Vote Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="preview">
+                    <img id="img-preview" src="data:image/jpeg;base64,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ftGDyyfSQUHqvaBrBgqZ5VpBiqRByfRe8YPbB9BE9m3J39pqqqqqqqqql3QHPmRO7N5oNlvJD0i/m0v1FvN5/qDZbyY9Ymdm00PnAHyPVqqqqqqqqxRobBw/v5IRLmxhCenEx1i1m8/3F7NpfuEJ6cyHSOSET5sf7QosSkAAwSfsYIsAnCAMWnqyCy6qPzhGLqw5D7Hg6sOYxKDPqo/OPqlaK576oUipskBUJYzvsNVVVVVVVVVVVVVVVVVVVVU1QtzOQJFXdYS0VxW0etQMNHYYXOQh7fYWZmZmZmZmZmZmZmZmZmZmY85CHviYbOruP/ZX/9oADAMBAAIAAwAAABDzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzLPPPrzzzzzzzzzzzzzz7/8A/wDOss880t/PPPPPPPPPPPPK/wD/AO81AAAAA5888888888888lSyyyyyzzjAARyyyyiV888888KAAAAAAAAAAAAA38gAG888888qAAAAAAAMDMAAAhDhAW8888888//AP8A/wD5kCwCQ1/PM/tf8888888++++7HjVMJTD3++++88888888++++7je979BT7++++88888888++++uB99qdVpH++++88888888++++6F99999pT++++88888888++++vLW999qHv++++88888888++++vDDV0hDDf++++88888888/8A/wD/APtYCBGkd/8A/wD/AJ3888888qAAAAAAAwDwAAAAAAAe888888xNPPPPPPPPPPPPPPPN18888888vPPPPPPPPPPPPPPPf88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888//EACURAAMAAAUDBAMAAAAAAAAAAAABESAxweHxECFRMEBBsWBx8P/aAAgBAwEBPxD8vpS+xpS9GJeSIiIhrwL1mP5H8izfTN4sn7MEhGRkYxDV92A3RQ19iUqLglkCU9F3mSFcdyuO5XHcrjuVx3PoD3HHRXQqPoD3K47i/lbn8zcrjuVx3PkLcejrhWzIRYjMcRHgUeRkSIWjIeHV0x6O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" style="max-height: 244px;max-width: 293px;" />
+
+                        <label class="voteimage" for="file-input">Upload Image</label>
+                        <input accept="image/*" type="file" id="file-input" name="image" />
+                    </div>
+                </div>
+
+                <label class="field">Vote time</label>
+                <div class="counttime">
+                    The vote end after 
+                    <input type="text" class="form-control time" id="exampleInputEmail1" placeholder="00" name="hour" required>:
+                    <input type="text" class="form-control time" id="exampleInputEmail1" placeholder="00" name="minute" required>:
+                    <input type="text" class="form-control time" id="exampleInputEmail1" placeholder="00" name="second" required>
+                    hours:minutes:seconds
+                </div>
+
+                <label class="field">Vote Type</label>
+                    <div>
+                    @foreach (var vote in Model.votelist)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="id" id="@vote.RuleName" value="@vote.VotingRuleId" checked>
+                            <label class="form-check-label" for="@vote.RuleName">
+                                @vote.RuleName
+                            </label>
+                        </div>
+                    }
+                    </div>
+                    <div>
+                        <label class="field">Vote Security</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="voteSecurity" id="publicVote" value="1" checked>
+                            <label class="form-check-label" for="publicVote">
+                                Public
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="voteSecurity" id="securityVote" value="2">
+                            <label class="form-check-label" for="securityVote">
+                                Security
+                            </label>
+                        </div>
+                        <div class="password-container">
+                            <label for="passwordInput">Password:</label>
+                            <input type="password" id="passwordInput" name="passwordInput" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="field">Category</label>
+                        <div>
+                    <select>
+                        @foreach (var category in Model.categories)
+                        {
+                            <option value="@category.CategoryId">@category.CategoryName</option>
+                        }
+                    </select>
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px">Continue to option details</button>
+            </form>
+
+        </div>
+
+        <script>
+            const input = document.getElementById('file-input');
+            const image = document.getElementById('img-preview');
+
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    const src = URL.createObjectURL(e.target.files[0]);
+                    image.src = src;
+                }
+            });
+
+            const publicVoteRadio = document.getElementById("publicVote");
+            const securityVoteRadio = document.getElementById("securityVote");
+            const passwordInput = document.getElementById("passwordInput");
+
+            publicVoteRadio.addEventListener("change", function () {
+                passwordInput.disabled = true;
+            });
+
+            securityVoteRadio.addEventListener("change", function () {
+                passwordInput.disabled = false;
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+﻿.register-container {
+    width: 800px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+    .register-container button {
+        display: block;
+        padding: 8px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+
+.btn-primary {
+    width: 250px; 
+    height: 40px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+    .register-container span {
+        color: red;
+    }

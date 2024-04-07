@@ -1,0 +1,59 @@
+
+.login-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px; 
+    text-align: center; 
+}
+
+    .login-container input {
+        display: block;
+        margin: 0 auto 10px; 
+        width: calc(100% - 22px);
+        padding: 10px;
+        border-radius: 5px; 
+        border: 1px solid #ccc; 
+    }
+
+
+    .login-container button {
+        display: block;
+        width: calc(100% - 22px);
+        padding: 8px; 
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px auto; 
+        border-radius: 5px; 
+        font-weight: bold; 
+        font-size: 14px; 
+    }
+
+        .login-container button.create-account-btn {
+            width: 200px; 
+            height: 40px;
+            background-color: limegreen;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+.link-container {
+    margin-top: 20px; /* Kho?ng cách gi?a các liên k?t và nút */
+    text-align: center; /* Canh gi?a liên k?t và nút */
+}
+
+    .link-container a {
+        text-decoration: none; /* B? g?ch chân */
+    }
+
+.separator-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px auto;
+}

@@ -1,0 +1,28 @@
+﻿@page
+@model PRN221_VotingSystem.Pages.DeleteCommentModel
+@{
+}
+<style>
+    .full-height-container {
+        height: 80vh !important;
+    }
+</style>
+
+<div class="container">
+    <h1>Delete Comment</h1>
+    <div class="user-comment">
+        <h2>User's Comment</h2>
+        <textarea class="form-control" rows="5" readonly>User comment</textarea>
+    </div>
+
+    @* Phần dành cho Host *@
+    <div class="host-actions">
+        <h2>Host Actions</h2>
+
+        <textarea class="form-control" rows="5">Host comment </textarea>
+        <button type="submit" class="btn btn-primary mt-2">Edit</button>
+
+        <button type="submit" class="btn btn-danger mt-2">Delete</button>
+
+    </div>
+</div>
